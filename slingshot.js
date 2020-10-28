@@ -20,7 +20,7 @@ class slingshot{
     }
 
     display(){
-       
+       line()
         if(this.sling.bodyA){
             var pointA = this.sling.bodyA.position;
             var pointB = this.pointB;

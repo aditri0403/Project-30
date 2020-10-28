@@ -8,23 +8,24 @@ class block{
         this.body = Bodies.rectangle(x, y, width, height, options);
         this.width = width;
         this.height = height;
-        this.visibility = 0;
+        this.visibility = 255;
         World.add(world, this.body);
       }
       display(){
         fill("yellow");
-        var angle = this.body.angle;
-        rect(this.body.position.x, this.body.position.y,this.width,this.height);
-        rotate(angle);
+        //var angle = this.body.angle;
+        
+        //rotate(angle);
         console.log(this.body.speed);
         if(this.body.speed < 3){
-          this.body.display;
+          rectMode(CENTER);
+          rect(this.body.position.x, this.body.position.y,this.width,this.height);
         }
         else{
             World.remove(world,this.body);
             push()
             this.visibilty = this.visibilty-5;
-            tint(0,this.visibilty);
+            tint(255,this.visibilty);
             pop()
         }
         

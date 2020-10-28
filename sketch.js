@@ -15,19 +15,19 @@ function setup() {
   world = engine.world;
 
   ground1 = new ground(400,380,800,20);
-  stand = new ground(250,350,200,50);
+  stand = new ground(390,350,200,40);
   
-  block1 = new block(330,345,30,40);
-  block2 = new block(360,345,30,40);
-  block3 = new block(390,345,30,40);
-  block4 = new block(420,345,30,40);
-  block5 = new block(450,345,30,40);
+  block1 = new block(330,310,30,40);
+  block2 = new block(360,310,30,40);
+  block3 = new block(390,310,30,40);
+  block4 = new block(420,310,30,40);
+  block5 = new block(450,310,30,40);
   
-  block6 = new block(360,305,30,40);
-  block7 = new block(390,305,30,40);
-  block8 = new block(420,305,30,40);
+  block6 = new block(360,270,30,40);
+  block7 = new block(390,270,30,40);
+  block8 = new block(420,270,30,40);
 
-  block9 = new block(390,265,30,40);
+  block9 = new block(390,230,30,40);
   
   polygon = Bodies.circle(50,200,20);
   World.add(world,polygon);
@@ -38,7 +38,6 @@ function setup() {
 
 function draw() {
   background(255,255,255);  
-
   ground1.display();
   stand.display();
   block1.display();
@@ -57,17 +56,19 @@ function draw() {
   ground1.display();
   ground1.display();
   slingShot.display();
-  ellipse(50,200,20,20);
+  ellipse(polygon.position.x,polygon.position.y,20,20);
+
+  Engine.update(engine);
   drawSprites();
 }
 function mouseReleased(){
   slingShot.fly();
 }
 function mouseDragged(){
-  Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+  Matter.Body.setPosition(polygon, {x: mouseX , y: mouseY});
 }
 function keyPressed (){
-   if(keyCode === 32){
-     slingshot.attach(this.polygon);
-   }
+  if(keyCode === 32){
+    slingShot.attach(this.polygon);
+  }
 }
