@@ -69,6 +69,6 @@ function mouseDragged(){
 }
 function keyPressed (){
   if(keyCode === 32){
-    slingShot.attach(this.polygon);
+    slingShot.attach(polygon);
   }
 }
